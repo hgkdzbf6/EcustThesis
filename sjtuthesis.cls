@@ -129,6 +129,7 @@
 \RequirePackage{siunitx}
 \RequirePackage{xparse}
 \RequirePackage{tikz}
+\RequirePackage{titletoc}
 \usetikzlibrary{shapes.geometric, arrows}
 
 % Make hyperref to set PDF metadata (author, title, subject, keywords)
@@ -157,19 +158,29 @@
 %==========
 \geometry{
   paper      = a4paper,
-  top        = 3.5cm,
-  bottom     = 4.0cm,
-  left       = 3.3cm,
-  right      = 2.8cm,
+  top        = 2.8cm,
+  bottom     = 2.0cm,
+  left       = 2.5cm,
+  right      = 2.5cm,
 }
 \setcounter{secnumdepth}{4}  % 章节编号深度 (part 对应 -1)
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
+
+\setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{SimSun}
+\renewcommand*{\songti}{\CJKfamily{song}}
+
+\dottedcontents{chapter}[56pt]{\zihao{4}\songti\bfseries\filleft}{56pt}{5pt}
+\dottedcontents{section}[26pt]{\zihao{-4}\songti\bfseries \filleft}{26pt}{5pt}
+\dottedcontents{subsection}[38pt]{\zihao{-4}\songti\filleft}{38pt}{5pt}
+
 \renewcommand{\cftchapfont}{\bfseries\heiti}  % 目录章节标题（黑体加粗）
+\renewcommand{\cftsecfont}{\bfseries\heiti}
 
 % User defined command list
 %% \me \mi \mj \dif \cleardoublepage \cndash \CJKLaTeX
 
 % A new column type
+% 使得列中的小数点对其
 \newcolumntype{d}[1]{D{.}{.}{#1}}% or D{.}{,}{#1} or D{.}{\cdot}{#1}
 
 % E-mail
@@ -217,31 +228,37 @@
 %% CTeX Settings
 % 名称：目录、表格索引、插图索引、算法、算法索引、代码
 \ctexset{%
-  contentsname   = \sjtu@contentsname,
+  contentsname   = \zihao{4}\songti\bfseries\sjtu@contentsname,
   listfigurename = \sjtu@listfigurename,
   listtablename  = \sjtu@listtablename,
   autoindent     = true,
   chapter={%
-    format       = \zihao{3}\bfseries\heiti\centering,
-    nameformat   = {},
-    titleformat  = {},
+    format       = \zihao{4}\bfseries\heiti\centering, %3号字体居中黑体
+    % titleformat  = \zihao{4}\bfseries\heiti\centering,
+    nameformat   = \zihao{4}\bfseries\heiti,
     aftername    = \quad,
     afterindent  = true,
-    beforeskip   = {15\p@},
-    afterskip    = {12\p@},
+    beforeskip   = {0.0ex},  % \p@是1pt的意思
+    afterskip    = {7.0ex},  %上下各空两行
+    % beforeskip   = {1ex \@plus .2ex},
+    % afterskip    = {1ex \@plus .2ex},
   },
   section={%
-    format       = \zihao{4}\bfseries\heiti,
+    format       = \zihao{-4}\bfseries\songti,  %字号小4黑体
+    % nameformat   = \zihao{-4}\bfseries\songti,
     afterindent  = true,
-    afterskip    = {1.0ex \@plus .2ex},
+    beforeskip   = {2.5ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
+    afterskip    = {2.5ex \@plus .2ex},
+    % afterskip    = {0ex},
   },
   subsection={%
-    format       = \zihao{-4}\normalfont,
+    format       = \zihao{-4}\songti,
     afterindent  = true,
     afterskip    = {1.0ex \@plus .2ex},
+    % afterskip   = {0ex},
   },
   subsubsection={%
-    format       = \normalsize\normalfont,
+    format       = \normalsize\songti,
     afterindent  = true,
     afterskip    = {1.0ex \@plus .2ex},
   },
@@ -483,7 +500,7 @@
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
-      {\normalfont\zihao{4} \sjtu@label@englishstatement}
+      {\songti\zihao{4} \sjtu@label@englishstatement}
       \vspace{20pt} \vskip\stretch{1}
       {\huge\sjtu@value@englishtitle \vskip 1pt}
       \vskip \stretch{1}
@@ -492,21 +509,21 @@
       \vskip 3pt
       \vskip \stretch{2}
     \else
-      {\normalfont\zihao{4}\sjtu@value@englishauthor}
+      {\songti\zihao{4}\sjtu@value@englishauthor}
       \vskip \stretch{1}
-      {\normalfont\zihao{4}\sjtu@label@englishadvisor}
+      {\songti\zihao{4}\sjtu@label@englishadvisor}
       \vskip 2pt
-      {\normalfont\zihao{4}\sjtu@value@englishadvisor}
+      {\songti\zihao{4}\sjtu@value@englishadvisor}
       \vskip 5pt
       \ifx\sjtu@value@englishcoadvisor\undefined\else
-        {\normalfont\zihao{4}\sjtu@label@englishcoadvisor}
+        {\songti\zihao{4}\sjtu@label@englishcoadvisor}
         \vskip 2pt
-        {\normalfont\zihao{4}\sjtu@value@englishcoadvisor}
+        {\songti\zihao{4}\sjtu@value@englishcoadvisor}
         \vskip \stretch{2}
       \fi
     \fi
-    \normalfont\sjtu@value@englishinstitute \vskip 30pt
-    \normalfont\sjtu@value@englishdate \vskip 20pt
+    \songti\sjtu@value@englishinstitute \vskip 30pt
+    \songti\sjtu@value@englishdate \vskip 20pt
   \end{center}
   \cleardoublepage
 }
@@ -690,17 +707,20 @@
     %% 双面打印页眉页脚
       \fancypagestyle{front}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{\small\kaishu\sjtu@value@school \zihao{1}\normalfont\sjtu@value@chinesedegree\sjtu@label@thesis}
-        \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
-        \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
-        \renewcommand{\headheight}{32pt}
+        \fancyhead[LO,RE]{\zihao{4}\kaishu\bfseries{}\sjtu@value@school 
+        \zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}
+        \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
+        % \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
+        % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+        % \renewcommand{\headheight}{32pt}
       }
       \fancypagestyle{main}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{\zihao{-4}\kaishu\sjtu@value@school \zihao{5}\normalfont\sjtu@value@chinesedegree\sjtu@label@thesis}
-        \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
-        \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
-        \renewcommand{\headheight}{32pt}
+        \fancyhead[LO,RE]{\zihao{4}\kaishu\sjtu@value@school 
+        \zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}
+        \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
+        % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+        % \renewcommand{\headheight}{32pt}
       }
     \else
     %% 单面打印页眉页脚
@@ -748,26 +768,26 @@
   \cleardoublepage
   \pdfbookmark[0]{\sjtu@label@abstract}{abstract}
   \chapter*{%
-    \sjtu@value@chinesetitle
-    \vskip 20pt
-    \sjtu@label@chineseabstract
+    \zihao{4}\bfseries\heiti\sjtu@value@chinesetitle
+    \vskip 32pt
+    \zihao{4}\bfseries\heiti\sjtu@label@chineseabstract
   }
   \markboth{\sjtu@label@chineseabstract}{}
 }{
   \vspace{2ex}\noindent
-  {\zihao{4} \textbf{\sjtu@label@keywords}{\sjtu@value@keywords}}
+  {\zihao{-4} \songti\bfseries{\sjtu@label@keywords}}{\zihao{-4} \songti{\sjtu@value@keywords}}
 }
 \newenvironment{englishabstract}{%
   \cleardoublepage
   \chapter*{%
-    \MakeUppercase\sjtu@value@englishtitle
-    \vskip 20pt
-    \MakeUppercase\sjtu@label@englishabstract
+    \zihao{4}\bfseries\heiti\MakeUppercase\sjtu@value@englishtitle
+    \vskip 32pt
+    \zihao{4}\bfseries\heiti\MakeUppercase\sjtu@label@englishabstract
   }
   \markboth{\sjtu@label@englishabstract}{}
 }{
   \vspace{2ex}\noindent
-  {\zihao{4} \textbf{\sjtu@label@englishkeywords}{\sjtu@value@englishkeywords}}
+  {\zihao{-4} \songti\bfseries{\sjtu@label@englishkeywords}}{\zihao{-4} \songti{\sjtu@value@englishkeywords}}
 }
 
 % 主要符号对照表
@@ -842,23 +862,23 @@
   {}
 
 \newenvironment{resumesection}[1]%
-  {{\noindent\normalfont\bfseries #1}
+  {{\noindent\songti\bfseries #1}
    \list{}{\labelwidth\z@
            \leftmargin 2\ccwd}
    \item\relax}%
   {\endlist}
 
-\newenvironment{resumelist}[1]%
-  {{\noindent\normalfont\bfseries #1}
-   \list{}{\labelwidth\z@
-           \leftmargin 4\ccwd
-           \itemindent -2\ccwd
-           \listparindent\itemindent}}%
-  {\endlist}
+% \newenvironment{resumelist}[1]%
+%   {{\noindent\songti\bfseries #1}
+%    \list{}{\labelwidth\z@
+%            \leftmargin 4\ccwd
+%            \itemindent -2\ccwd
+%            \listparindent\itemindent}}%
+%   {\endlist}
 
 \renewenvironment{thanks}{%
   \chapter*{%
-    \sjtu@label@thanks
+    \zihao{4}\songti\bfseries\sjtu@label@thanks
     \markboth{\sjtu@label@thanks}{}
   }
   \addcontentsline{toc}{chapter}{\sjtu@label@thanks}

@@ -195,7 +195,7 @@ i,j作为虚数单位时，也应该使用“直立体”为了明显，还加�
 \begin{figure}[!htp]
   \centering
   \subcaptionbox{EPS 图像\label{fig:epspdf:a}}[3cm] %标题的长度，超过则会换行，如下一个小图。
-    {\includegraphics[height=2.5cm]{example/sjtulogo.eps}}
+    {\includegraphics[height=2.5cm]{example/ECUSTlogo.eps}}
   \hspace{4em}
   \subcaptionbox{PDF 图像，注意这个图略矮些。如果标题很长的话，它会自动换行\label{fig:epspdf:b}}
     {\includegraphics[height=2cm]{sjtulogo.pdf}}
@@ -207,7 +207,7 @@ i,j作为虚数单位时，也应该使用“直立体”为了明显，还加�
   \centering
   \begin{subfigure}{2.5cm}
     \centering
-    \includegraphics[height=2.5cm]{example/sjtulogo.eps}
+    \includegraphics[height=2.5cm]{example/ECUSTlogo.eps}
     \caption{EPS 图像}
   \end{subfigure}
   \hspace{4em}
@@ -369,8 +369,8 @@ i,j作为虚数单位时，也应该使用“直立体”为了明显，还加�
 在模板中，表现形式的控制逻辑通过biblatex-gb7714-2015包实现\footnote{\url{https://www.ctan.org/pkg/biblatex-gb7714-2015}}，基于{Bib\LaTeX}管理文献。在目前的多数TeX发行版中，可能都没有默认包含biblatex-gb7714-2015，需要手动安装。
 
 正文中引用参考文献时，用\verb+\cite{key1,key2,key3...}+可以产生“上标引用的参考文献”，
-如\cite{Meta_CN,chen2007act,DPMG}。
-使用\verb+\parencite{key1,key2,key3...}+则可以产生水平引用的参考文献，例如\parencite{JohnD,zhubajie,IEEE-1363}。
+如\cite{Meta_CN}。
+使用\verb+\parencite{key1,key2,key3...}+则可以产生水平引用的参考文献，例如\parencite{JohnD}。
 请看下面的例子，将会穿插使用水平的和上标的参考文献：关于书的\parencite{Meta_CN,JohnD,IEEE-1363}，关于期刊的\cite{chen2007act,chen2007ewi}，
 会议论文\parencite{DPMG,kocher99,cnproceed}，
 硕士学位论文\parencite{zhubajie,metamori2004}，博士学位论文\cite{shaheshang,FistSystem01,bai2008}，标准文件\parencite{IEEE-1363}，技术报告\cite{NPB2}，电子文献\parencite{xiaoyu2001, CHRISTINE1998}，用户手册\parencite{RManual}。

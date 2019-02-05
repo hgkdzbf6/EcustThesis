@@ -1,0 +1,13 @@
+This is XeTeX, Version 3.14159265-2.6-0.Latexmk: Non-existent bbl file 'thesis.bbl'
+ No file thesis.bbl.
+Latexmk: Summary of warnings:
+  LatexThis is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex)
+ restricted \write18 enabled.
+Latexmk: Run number 3 oThis is XeTeX, VeLatexmk: Run number 4 of rule 'xelatex'
+Latexmk: Run number 1 of rule 'xdvipdfmx'
+d \write18 enabled.
+entering extended mode
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+For rule 'xdvipdfmx', running '&do_viewfile(  )' ...

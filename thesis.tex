@@ -4,7 +4,7 @@
 %%==================================================
 
 % 双面打印
-\documentclass[doctor, openright, twoside]{sjtuthesis}
+\documentclass[master, openright, twoside, AutoFakeBold]{sjtuthesis}
 % \documentclass[bachelor, openany, oneside, submit]{sjtuthesis}
 % \documentclass[master, review]{sjtuthesis}
 % \documentclass[%
@@ -51,21 +51,21 @@
 
   % 目录、插图目录、表格目录
   \tableofcontents
-  \listoffigures
-  \addcontentsline{toc}{chapter}{\listfigurename}     % 将插图目录加入全文目录
-  \listoftables
-  \addcontentsline{toc}{chapter}{\listtablename}      % 将表格目录加入全文目录
-  \listofalgorithms
-  \addcontentsline{toc}{chapter}{\listalgorithmname}  % 将算法目录加入全文目录
+  %\listoffigures
+  % \addcontentsline{toc}{chapter}{\listfigurename}     % 将插图目录加入全文目录
+ % \listoftables
+  % \addcontentsline{toc}{chapter}{\listtablename}      % 将表格目录加入全文目录
+  %\listofalgorithms
+  %\addcontentsline{toc}{chapter}{\listalgorithmname}  % 将算法目录加入全文目录
 
-  \include{tex/symbol} % 主要符号、缩略词对照表
+  % \include{tex/symbol} % 主要符号、缩略词对照表
 \fi
 
 \makeatother
-\mainmatter % 使用阿拉伯数字对正文编号
+\mainmatter % 使用阿拉伯数字对正文编号 
 
 % 正文内容
-\include{tex/intro}
+\include{tex/intro} 
 \include{tex/example}
 \include{tex/faq}
 \include{tex/summary}
@@ -108,9 +108,9 @@
       \include{tex/projectsreview}
     \else
       \include{tex/pub}       % 发表论文
-      \include{tex/projects}  % 参与的项目
+      % \include{tex/projects}  % 参与的项目
       % \include{tex/patents}   % 申请专利
-      \include{tex/resume}    % 个人简历
+      % \include{tex/resume}    % 个人简历
     \fi
   \fi
 \fi
