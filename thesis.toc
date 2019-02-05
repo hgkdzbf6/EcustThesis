@@ -1,0 +1,53 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\contentsline {chapter}{插图索引}{IX}{chapter*.4}
+\contentsline {chapter}{表格索引}{XI}{chapter*.5}
+\contentsline {chapter}{算法索引}{XIII}{chapter*.6}
+\contentsline {chapter}{主要符号对照表}{XV}{chapter*.7}
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}这是什么}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}使用模板}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}准备工作}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}模板选项}{1}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}编译模板}{2}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}模板文件布局}{2}{subsection.1.1.4}
+\contentsline {subsubsection}{\numberline {1.1.4.1}格式控制文件}{4}{subsubsection.1.1.4.1}
+\contentsline {subsubsection}{\numberline {1.1.4.2}主控文件thesis.tex}{4}{subsubsection.1.1.4.2}
+\contentsline {subsubsection}{\numberline {1.1.4.3}各章源文件tex}{4}{subsubsection.1.1.4.3}
+\contentsline {subsubsection}{\numberline {1.1.4.4}图片文件夹figure}{4}{subsubsection.1.1.4.4}
+\contentsline {subsubsection}{\numberline {1.1.4.5}参考文献数据库bib}{4}{subsubsection.1.1.4.5}
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}{\LaTeX } 排版例子}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}列表环境}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}无序列表}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}有序列表}{5}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}描述型列表}{5}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}自定义列表样式}{6}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}数学排版}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}公式排版}{6}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}SI单位}{6}{subsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.1}一个四级标题}{6}{subsubsection.2.2.2.1}
+\contentsline {subsection}{\numberline {2.2.3}定理环境}{7}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}向文档中插入图像}{8}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}支持的图片格式}{8}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}长标题的换行}{9}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}添加图注}{10}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}绘制流程图}{10}{subsection.2.3.4}
+\contentsline {section}{\numberline {2.4}表格}{12}{section.2.4}
+\contentsline {section}{\numberline {2.5}参考文献管理}{12}{section.2.5}
+\contentsline {section}{\numberline {2.6}用listings插入源代码}{14}{section.2.6}
+\contentsline {section}{\numberline {2.7}用algorithm和algorithmicx宏包插入算法描述}{15}{section.2.7}
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}常见问题}{19}{chapter.3}
+\contentsline {chapter}{全文总结}{21}{chapter*.19}
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}搭建模板编译环境}{23}{appendix.A}
+\contentsline {section}{\numberline {A.1}安装TeX发行版}{23}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}Mac OS X}{23}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Linux}{23}{subsection.A.1.2}
+\contentsline {section}{\numberline {A.2}安装中文字体}{23}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Mac OS X、Deepin}{23}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}RedHat/CentOS用户}{23}{subsection.A.2.2}
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}Maxwell Equations}{25}{appendix.B}
+\contentsline {chapter}{\numberline {附录 C\hspace {.3em}}从 {CJK--\LaTeX } 转向 \XeTeX }{27}{appendix.C}
+\contentsline {chapter}{\numberline {附录 D\hspace {.3em}}模板更新记录}{29}{appendix.D}
+\contentsline {chapter}{参考文献}{31}{appendix*.20}
+\contentsline {chapter}{致\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}谢}{33}{appendix*.21}
+\contentsline {chapter}{攻读学位期间发表的学术论文}{35}{appendix*.22}
+\contentsline {chapter}{攻读学位期间参与的项目}{37}{appendix*.23}
+\contentsline {chapter}{简\nobreakspace {}\nobreakspace {}\nobreakspace {}\nobreakspace {}历}{39}{appendix*.24}
