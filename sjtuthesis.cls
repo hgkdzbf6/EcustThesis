@@ -264,6 +264,7 @@
   subsection={%
     format       = \zihao{-4}\songti,
     afterindent  = true,
+    beforeskip    = {1.0ex \@plus .2ex},
     afterskip    = {1.0ex \@plus .2ex},
     % afterskip   = {0ex},
   },
@@ -291,7 +292,7 @@
 
 % Caption setting in caption and bicaption pacakge
 \DeclareCaptionFont{kaishu}{\kaishu}
-\captionsetup{format=plain,labelformat=simple,labelsep=space,justification=centering,font={small,kaishu}}
+\captionsetup{format=plain,labelformat=simple,labelsep=quad,justification=centering,font={small}}
 \captionsetup[bi-first]{bi-first}
 \captionsetup[bi-second]{bi-second}
 \captionsetup[sub]{font=footnotesize}
@@ -302,7 +303,7 @@
 }
 \DeclareCaptionOption{bi-second}[]{%
     \def\tablename{Table}
-    \def\figurename{Figure}
+    \def\figurename{Fig.}
 }
 
 % Set fontnote font size in threeparttable
@@ -320,9 +321,9 @@
 % 定公式、图、表、算法、代码的编号为"3-1"的形式，即分隔符由.变为短杠
 \AtBeginDocument{%
   \renewcommand{\theequation}{\thechapter--\arabic{equation}}
-  \renewcommand{\thefigure}{\thechapter--\arabic{figure}}
+  \renewcommand{\thefigure}{\thechapter .\arabic{figure}}
   \renewcommand\p@subfigure{\thefigure}
-  \renewcommand{\thetable}{\thechapter--\arabic{table}}
+  \renewcommand{\thetable}{\thechapter .\arabic{table}}
   \renewcommand{\thealgorithm}{\thechapter--\arabic{algorithm}}
   \renewcommand{\thelstlisting}{\thechapter--\arabic{lstlisting}}
 }
