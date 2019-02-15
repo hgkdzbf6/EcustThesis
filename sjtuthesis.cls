@@ -168,7 +168,7 @@
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
 
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{SimSun}
-\renewcommand*{\songti}{\CJKfamily{song}}
+\renewcommand*{\songti}{\CJKfamily{zhsong}}
 
 \dottedcontents{chapter}[56pt]{\zihao{4}\songti\bfseries\filleft}{56pt}{5pt}
 \dottedcontents{section}[26pt]{\zihao{-4}\songti\bfseries \filleft}{26pt}{5pt}
@@ -298,6 +298,7 @@
 \captionsetup[sub]{font=footnotesize}
 
 \DeclareCaptionOption{bi-first}[]{%
+    \songti\bfseries
     \def\tablename{\sjtu@tablename}
     \def\figurename{\sjtu@figurename}
 }
