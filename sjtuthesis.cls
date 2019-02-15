@@ -127,7 +127,7 @@
 \RequirePackage{calc}
 \RequirePackage{algorithm, algorithmicx, algpseudocode}
 \RequirePackage{siunitx}
-\RequirePackage{xparse}
+\RequirePackage{xparse} 
 \RequirePackage{tikz}
 \RequirePackage{titletoc}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -156,6 +156,7 @@
 %==========
 % Segment 2. Define general-purpose LaTeX commands.
 %==========
+
 \geometry{
   paper      = a4paper,
   top        = 2.8cm,
@@ -192,7 +193,11 @@
 \newcommand{\mj}{\mathrm{j}}
 \newcommand{\dif}{\mathrm{d}}
 
+\newcommand{\sihao}{\zihao{4}}
+\newcommand{\xiaosi}{\zihao{-4}}
+
 % patch commands
+% 这块代码是添加页眉页脚的
 \patchcmd\cleardoublepage
   {\newpage}
   {\thispagestyle{empty}\newpage}
@@ -205,16 +210,18 @@
   {\addtocontents{loa}{\protect\addvspace{10\p@}}%
    \if@twocolumn}
   {}{}
+
+% 在生成目录的时候寻找tableofcontent，然后找标签然后添加目录
 \patchcmd\tableofcontents
   {\chapter}
   {\cleardoublepage%
-   \pdfbookmark[0]{\contentsname}{toc}%
+   \pdfbookmark[0]{\sjtu@contentsname}{toc} %pdfbookmark是用来添加pdf的标签
    \chapter}
   {}{}
 
 % CJK-LaTeX Logo \CJKLaTeX
 \newcommand{\CJKLaTeX}{CJK--\LaTeX}
-
+ 
 % cndash
 \newcommand{\cndash}{\rule{0.0em}{0pt}\rule[0.35em]{1.4em}{0.05em}\rule{0.2em}{0pt}}
 
@@ -222,13 +229,16 @@
 % Segment 3. Configure the imported packages, also extend LaTeX command in sjtuthesis
 %==========
 
-%% 行距缩放因子
+% \CTEXsetup[name={第,章},number={\arabic{chapter}}]{chapter} 
+\CTEXsetup[name={第,章},number={\arabic{chapter}}]{chapter} 
+
+%% 行距缩放因子 
 \linespread{1.3}
 
 %% CTeX Settings
 % 名称：目录、表格索引、插图索引、算法、算法索引、代码
 \ctexset{%
-  contentsname   = \zihao{4}\songti\bfseries\sjtu@contentsname,
+  contentsname   = \sihao\songti\bfseries\sjtu@contentsname,
   listfigurename = \sjtu@listfigurename,
   listtablename  = \sjtu@listtablename,
   autoindent     = true,
@@ -539,7 +549,7 @@
     \vskip 30pt
     {\fontsize{32}{32}\sjtu@value@chinesedegree\sjtu@label@thesis}
     \vskip 15pt
-    {\zihao{-2}\MakeUppercase{Thesis of \sjtu@value@englishdegree}}
+    {\zihao{-2}{Thesis of \sjtu@value@englishdegree}}
     \vskip 15pt
     \includegraphics{sjtubadge}
     \vskip \stretch{2}
@@ -777,12 +787,15 @@
   \vspace{2ex}\noindent
   {\zihao{-4} \songti\bfseries{\sjtu@label@keywords}}{\zihao{-4} \songti{\sjtu@value@keywords}}
 }
+
+% 英文摘要
 \newenvironment{englishabstract}{%
   \cleardoublepage
   \chapter*{%
-    \zihao{4}\bfseries\heiti\MakeUppercase\sjtu@value@englishtitle
+    \zihao{4}\bfseries\heiti\sjtu@value@englishtitle
     \vskip 32pt
-    \zihao{4}\bfseries\heiti\MakeUppercase\sjtu@label@englishabstract
+    % \zihao{4}\bfseries\heiti\sjtu@label@englishabstract
+    \zihao{4}\bfseries\heiti\sjtu@label@englishabstract
   }
   \markboth{\sjtu@label@englishabstract}{}
 }{
@@ -796,8 +809,8 @@
 
 \newenvironment{publications}[1]
      {\chapter{\sjtu@label@publications}%
-      \@mkboth{\MakeUppercase\sjtu@label@publications}
-              {\MakeUppercase\sjtu@label@publications}%
+      \@mkboth{\sjtu@label@publications}
+              {\sjtu@label@publications}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
@@ -817,8 +830,8 @@
 
 \newenvironment{patents}[1]
      {\chapter{\sjtu@label@patents}%
-      \@mkboth{\MakeUppercase\sjtu@label@patents}
-              {\MakeUppercase\sjtu@label@patents}%
+      \@mkboth{\sjtu@label@patents}
+              {\sjtu@label@patents}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
@@ -838,8 +851,8 @@
 
 \newenvironment{projects}[1]
      {\chapter{\sjtu@label@projects}%
-      \@mkboth{\MakeUppercase\sjtu@label@projects}
-              {\MakeUppercase\sjtu@label@projects}%
+      \@mkboth{\sjtu@label@projects}
+              {\sjtu@label@projects}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
@@ -898,7 +911,7 @@
   \pagestyle{biglast}
   \chapter*{%
     \bfseries
-    \MakeUppercase\sjtu@value@englishtitle
+    \sjtu@value@englishtitle
     \vskip 20pt
   }
 }{\cleardoublepage}
