@@ -23,7 +23,6 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-pdf",
                 "mythesis"
             ]
         },
@@ -45,7 +44,7 @@
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "%DOC%"
+                "mythesis"
             ]
         },
         {
@@ -55,5 +54,6 @@
                 "mythesis"
             ]
         }
-    ]
+    ],
+    "latex-workshop.latex.clean.enabled": true
 }

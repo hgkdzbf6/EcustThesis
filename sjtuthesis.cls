@@ -233,7 +233,7 @@
 \CTEXsetup[name={第,章},number={\arabic{chapter}}]{chapter} 
 
 %% 行距缩放因子 
-\linespread{1.3}
+\linespread{1.4}
 
 %% CTeX Settings
 % 名称：目录、表格索引、插图索引、算法、算法索引、代码
@@ -243,29 +243,29 @@
   listtablename  = \sjtu@listtablename,
   autoindent     = true,
   chapter={%
-    format       = \zihao{4}\bfseries\heiti\centering, %3号字体居中黑体
+    format       = \zihao{4}\heiti\centering, %3号字体居中黑体
     % titleformat  = \zihao{4}\bfseries\heiti\centering,
-    nameformat   = \zihao{4}\bfseries\heiti,
+    nameformat   = \zihao{4}\heiti,
     aftername    = \quad,
     afterindent  = true,
-    beforeskip   = {0.0ex},  % \p@是1pt的意思
-    afterskip    = {7.0ex},  %上下各空两行
-    % beforeskip   = {1ex \@plus .2ex},
-    % afterskip    = {1ex \@plus .2ex},
+    % beforeskip   = {0.0ex},  % \p@是1pt的意思
+    % afterskip    = {7.0ex},  %上下各空两行
+    beforeskip   = {-4.0ex \@plus .2ex},
+    afterskip    = {1.0ex \@plus .2ex},
   },
   section={%
     format       = \zihao{-4}\bfseries\songti,  %字号小4黑体
     % nameformat   = \zihao{-4}\bfseries\songti,
     afterindent  = true,
-    beforeskip   = {2.5ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
-    afterskip    = {2.5ex \@plus .2ex},
+    beforeskip   = {0.9ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
+    afterskip    = {0.5ex \@plus .2ex},
     % afterskip    = {0ex},
   },
   subsection={%
     format       = \zihao{-4}\songti,
     afterindent  = true,
-    beforeskip    = {1.0ex \@plus .2ex},
-    afterskip    = {1.0ex \@plus .2ex},
+    beforeskip    = {0.0ex \@plus .2ex},
+    afterskip    = {0.0ex \@plus .2ex},
     % afterskip   = {0ex},
   },
   subsubsection={%
@@ -719,8 +719,8 @@
     %% 双面打印页眉页脚
       \fancypagestyle{front}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{\zihao{4}\kaishu\bfseries{}\sjtu@value@school 
-        \zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}
+        \fancyhead[LO,RE]{\zihao{4}\bfseries\kaishu{\sjtu@value@school}
+        {\zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}}
         \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
         % \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
         % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
@@ -728,7 +728,7 @@
       }
       \fancypagestyle{main}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{\zihao{4}\kaishu\sjtu@value@school 
+        \fancyhead[LO,RE]{{\bfseries\zihao{4}\kaishu\sjtu@value@school}
         \zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}
         \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
         % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
