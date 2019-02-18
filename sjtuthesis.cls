@@ -168,8 +168,9 @@
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
 
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{SimSun}
-\renewcommand*{\songti}{\CJKfamily{song}}
+\renewcommand*{\songti}{\CJKfamily{zhsong}}
 
+% 目录，前面的引导编号的缩进
 \dottedcontents{chapter}[56pt]{\zihao{4}\songti\bfseries\filleft}{56pt}{5pt}
 \dottedcontents{section}[26pt]{\zihao{-4}\songti\bfseries \filleft}{26pt}{5pt}
 \dottedcontents{subsection}[38pt]{\zihao{-4}\songti\filleft}{38pt}{5pt}
@@ -233,7 +234,7 @@
 \CTEXsetup[name={第,章},number={\arabic{chapter}}]{chapter} 
 
 %% 行距缩放因子 
-\linespread{1.3}
+\linespread{1.4}
 
 %% CTeX Settings
 % 名称：目录、表格索引、插图索引、算法、算法索引、代码
@@ -243,34 +244,35 @@
   listtablename  = \sjtu@listtablename,
   autoindent     = true,
   chapter={%
-    format       = \zihao{4}\bfseries\heiti\centering, %3号字体居中黑体
+    format       = \zihao{4}\heiti\centering, %3号字体居中黑体
     % titleformat  = \zihao{4}\bfseries\heiti\centering,
-    nameformat   = \zihao{4}\bfseries\heiti,
+    nameformat   = \zihao{4}\heiti,
     aftername    = \quad,
     afterindent  = true,
-    beforeskip   = {0.0ex},  % \p@是1pt的意思
-    afterskip    = {7.0ex},  %上下各空两行
-    % beforeskip   = {1ex \@plus .2ex},
-    % afterskip    = {1ex \@plus .2ex},
+    % beforeskip   = {0.0ex},  % \p@是1pt的意思
+    % afterskip    = {7.0ex},  %上下各空两行
+    beforeskip   = {-4.0ex \@plus .2ex},
+    afterskip    = {1.0ex \@plus .2ex},
   },
   section={%
     format       = \zihao{-4}\bfseries\songti,  %字号小4黑体
     % nameformat   = \zihao{-4}\bfseries\songti,
     afterindent  = true,
-    beforeskip   = {2.5ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
-    afterskip    = {2.5ex \@plus .2ex},
+    beforeskip   = {0.9ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
+    afterskip    = {0.5ex \@plus .2ex},
     % afterskip    = {0ex},
   },
   subsection={%
     format       = \zihao{-4}\songti,
     afterindent  = true,
-    afterskip    = {1.0ex \@plus .2ex},
+    beforeskip   = {0.0ex \@plus .2ex},
+    afterskip    = {0.0ex \@plus .2ex},
     % afterskip   = {0ex},
   },
   subsubsection={%
     format       = \normalsize\songti,
     afterindent  = true,
-    afterskip    = {1.0ex \@plus .2ex},
+    % afterskip    = {0.0ex \@plus .2ex},
   },
   paragraph/afterindent    = true,
   subparagraph/afterindent = true,
@@ -291,18 +293,19 @@
 
 % Caption setting in caption and bicaption pacakge
 \DeclareCaptionFont{kaishu}{\kaishu}
-\captionsetup{format=plain,labelformat=simple,labelsep=space,justification=centering,font={small,kaishu}}
+\captionsetup{format=plain,labelformat=simple,labelsep=quad,justification=centering,font={small}}
 \captionsetup[bi-first]{bi-first}
 \captionsetup[bi-second]{bi-second}
 \captionsetup[sub]{font=footnotesize}
 
 \DeclareCaptionOption{bi-first}[]{%
+    \songti\bfseries
     \def\tablename{\sjtu@tablename}
     \def\figurename{\sjtu@figurename}
 }
 \DeclareCaptionOption{bi-second}[]{%
     \def\tablename{Table}
-    \def\figurename{Figure}
+    \def\figurename{Fig.}
 }
 
 % Set fontnote font size in threeparttable
@@ -320,9 +323,9 @@
 % 定公式、图、表、算法、代码的编号为"3-1"的形式，即分隔符由.变为短杠
 \AtBeginDocument{%
   \renewcommand{\theequation}{\thechapter--\arabic{equation}}
-  \renewcommand{\thefigure}{\thechapter--\arabic{figure}}
+  \renewcommand{\thefigure}{\thechapter .\arabic{figure}}
   \renewcommand\p@subfigure{\thefigure}
-  \renewcommand{\thetable}{\thechapter--\arabic{table}}
+  \renewcommand{\thetable}{\thechapter .\arabic{table}}
   \renewcommand{\thealgorithm}{\thechapter--\arabic{algorithm}}
   \renewcommand{\thelstlisting}{\thechapter--\arabic{lstlisting}}
 }
@@ -717,8 +720,8 @@
     %% 双面打印页眉页脚
       \fancypagestyle{front}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{\zihao{4}\kaishu\bfseries{}\sjtu@value@school 
-        \zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}
+        \fancyhead[LO,RE]{\zihao{4}\bfseries\kaishu{\sjtu@value@school}
+        {\zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}}
         \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
         % \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
         % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
@@ -726,7 +729,7 @@
       }
       \fancypagestyle{main}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{\zihao{4}\kaishu\sjtu@value@school 
+        \fancyhead[LO,RE]{{\bfseries\zihao{4}\kaishu\sjtu@value@school}
         \zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}
         \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
         % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
