@@ -170,6 +170,7 @@
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{SimSun}
 \renewcommand*{\songti}{\CJKfamily{zhsong}}
 
+% 目录，前面的引导编号的缩进
 \dottedcontents{chapter}[56pt]{\zihao{4}\songti\bfseries\filleft}{56pt}{5pt}
 \dottedcontents{section}[26pt]{\zihao{-4}\songti\bfseries \filleft}{26pt}{5pt}
 \dottedcontents{subsection}[38pt]{\zihao{-4}\songti\filleft}{38pt}{5pt}
@@ -250,21 +251,34 @@
     afterindent  = true,
     % beforeskip   = {0.0ex},  % \p@是1pt的意思
     % afterskip    = {7.0ex},  %上下各空两行
+%<<<<<<< master
     beforeskip   = {-0.5ex \@plus .2ex},  % plus弹性长度 实际长度可超过正常值和伸展值之和，但不能小于正常值和收缩值之差 
     afterskip    = {3.0ex \@plus .2ex}, % 接近当前字体的字符 "x"的高度认为是半行
+%=======
+%    beforeskip   = {-4.0ex \@plus .2ex},
+%    afterskip    = {1.0ex \@plus .2ex},
+%>>>>>>> master
   },
   section={%
     format       = \zihao{-4}\bfseries\songti,  %字号小4黑体
     % nameformat   = \zihao{-4}\bfseries\songti,
     afterindent  = true,
     beforeskip   = {0.9ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
+%<<<<<<< master
     afterskip    = {0.9ex \@plus .2ex},
+%=======
+%    afterskip    = {0.5ex \@plus .2ex},
+%>>>>>>> master
     % afterskip    = {0ex},
   },
   subsection={%
     format       = \zihao{-4}\songti,
     afterindent  = true,
+%<<<<<<< master
     beforeskip    = {0.0ex \@plus .2ex},
+%=======
+%    beforeskip   = {0.0ex \@plus .2ex},
+%>>>>>>> master
     afterskip    = {0.0ex \@plus .2ex},
     % afterskip   = {0ex},
   },
