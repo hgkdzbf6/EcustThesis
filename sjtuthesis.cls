@@ -95,7 +95,7 @@
 %==========
 
 \RequirePackage{etoolbox}
-\RequirePackage{geometry} %设置版面
+\RequirePackage[includehead]{geometry} %设置版面
 \RequirePackage{fancyhdr}
 \RequirePackage{pageslts}
 \RequirePackage[titles]{tocloft}
@@ -116,7 +116,7 @@
 \RequirePackage{caption}
 \RequirePackage[list=off]{bicaption}
 \RequirePackage{subcaption}
-\RequirePackage[backend=biber,style=gb7714-2015]{biblatex}
+\RequirePackage[backend=biber,style=gb7714-2015,gbnamefmt=lowercase,gbpub=false]{biblatex}
 \RequirePackage{xcolor}
 \RequirePackage{listings}
 \RequirePackage{textcomp}
@@ -159,7 +159,7 @@
 
 \geometry{
   paper      = a4paper,
-  top        = 2.8cm,
+  top        = 2.0cm + 4pt,  % 页眉距顶端2cm + word字体的微小差别补偿
   bottom     = 2.0cm,
   left       = 2.5cm,
   right      = 2.5cm,
@@ -251,21 +251,34 @@
     afterindent  = true,
     % beforeskip   = {0.0ex},  % \p@是1pt的意思
     % afterskip    = {7.0ex},  %上下各空两行
-    beforeskip   = {-4.0ex \@plus .2ex},
-    afterskip    = {1.0ex \@plus .2ex},
+%<<<<<<< master
+    beforeskip   = {-0.5ex \@plus .2ex},  % plus弹性长度 实际长度可超过正常值和伸展值之和，但不能小于正常值和收缩值之差 
+    afterskip    = {3.0ex \@plus .2ex}, % 接近当前字体的字符 "x"的高度认为是半行
+%=======
+%    beforeskip   = {-4.0ex \@plus .2ex},
+%    afterskip    = {1.0ex \@plus .2ex},
+%>>>>>>> master
   },
   section={%
     format       = \zihao{-4}\bfseries\songti,  %字号小4黑体
     % nameformat   = \zihao{-4}\bfseries\songti,
     afterindent  = true,
     beforeskip   = {0.9ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
-    afterskip    = {0.5ex \@plus .2ex},
+%<<<<<<< master
+    afterskip    = {0.9ex \@plus .2ex},
+%=======
+%    afterskip    = {0.5ex \@plus .2ex},
+%>>>>>>> master
     % afterskip    = {0ex},
   },
   subsection={%
     format       = \zihao{-4}\songti,
     afterindent  = true,
-    beforeskip   = {0.0ex \@plus .2ex},
+%<<<<<<< master
+    beforeskip    = {0.0ex \@plus .2ex},
+%=======
+%    beforeskip   = {0.0ex \@plus .2ex},
+%>>>>>>> master
     afterskip    = {0.0ex \@plus .2ex},
     % afterskip   = {0ex},
   },
@@ -734,6 +747,7 @@
         \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
         % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
         % \renewcommand{\headheight}{32pt}
+        \renewcommand{\headsep}{2mm} % 页眉底端到正文文字上端距离
       }
     \else
     %% 单面打印页眉页脚
@@ -742,14 +756,15 @@
         \fancyhead[L]{\huge\kaishu\sjtu@value@school \zihao{1}\sjtu@value@chinesedegree\sjtu@label@thesis}
         \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
         \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
-        \renewcommand{\headheight}{32pt}
+        % \renewcommand{\headheight}{32pt}
       }
       \fancypagestyle{main}{%
         \fancyhf{}
         \fancyhead[L]{\huge\kaishu\sjtu@value@school \small\sjtu@value@chinesedegree\sjtu@label@thesis}
         \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
         \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
-        \renewcommand{\headheight}{32pt}
+        % \renewcommand{\headheight}{32pt}
+        \renewcommand{\headsep}{2mm} % 页眉底端到正文文字上端距离
       }
     \fi
   \fi
