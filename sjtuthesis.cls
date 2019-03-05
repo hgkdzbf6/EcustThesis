@@ -95,7 +95,7 @@
 %==========
 
 \RequirePackage{etoolbox}
-\RequirePackage[includehead]{geometry} %设置版面
+\RequirePackage{geometry} %设置版面
 \RequirePackage{fancyhdr}
 \RequirePackage{pageslts}
 \RequirePackage[titles]{tocloft}
@@ -132,6 +132,9 @@
 \RequirePackage{titletoc}
 \usetikzlibrary{shapes.geometric, arrows}
 
+\setlength{\textfloatsep}{5pt}
+\setlength{\bibitemsep}{0em}
+
 % Make hyperref to set PDF metadata (author, title, subject, keywords)
 \AtBeginDocument{
   \hypersetup{
@@ -159,7 +162,7 @@
 
 \geometry{
   paper      = a4paper,
-  top        = 2.0cm + 4pt,  % 页眉距顶端2cm + word字体的微小差别补偿
+  top        = 2.8cm,
   bottom     = 2.0cm,
   left       = 2.5cm,
   right      = 2.5cm,
@@ -169,6 +172,9 @@
 
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{SimSun}
 \renewcommand*{\songti}{\CJKfamily{zhsong}}
+
+% \renewcommand{\CJKglue}{\hskip 1cm plus 0.2\baselineskip}
+\renewcommand{\CJKglue}{\hskip 4cm \baselineskip}
 
 % 目录，前面的引导编号的缩进
 \dottedcontents{chapter}[56pt]{\zihao{4}\songti\bfseries\filleft}{56pt}{5pt}
@@ -251,35 +257,22 @@
     afterindent  = true,
     % beforeskip   = {0.0ex},  % \p@是1pt的意思
     % afterskip    = {7.0ex},  %上下各空两行
-%<<<<<<< master
-    beforeskip   = {-0.5ex \@plus .2ex},  % plus弹性长度 实际长度可超过正常值和伸展值之和，但不能小于正常值和收缩值之差 
-    afterskip    = {3.0ex \@plus .2ex}, % 接近当前字体的字符 "x"的高度认为是半行
-%=======
-%    beforeskip   = {-4.0ex \@plus .2ex},
-%    afterskip    = {1.0ex \@plus .2ex},
-%>>>>>>> master
+    beforeskip   = {-0.5ex \@plus .2ex},
+    afterskip    = {3.0ex \@plus .2ex},
   },
   section={%
     format       = \zihao{-4}\bfseries\songti,  %字号小4黑体
     % nameformat   = \zihao{-4}\bfseries\songti,
     afterindent  = true,
     beforeskip   = {0.9ex \@plus .2ex},  %瞎猜的数字，反正之后可以调整
-%<<<<<<< master
     afterskip    = {0.9ex \@plus .2ex},
-%=======
-%    afterskip    = {0.5ex \@plus .2ex},
-%>>>>>>> master
     % afterskip    = {0ex},
   },
   subsection={%
     format       = \zihao{-4}\songti,
     afterindent  = true,
-%<<<<<<< master
-    beforeskip    = {0.0ex \@plus .2ex},
-%=======
-%    beforeskip   = {0.0ex \@plus .2ex},
-%>>>>>>> master
-    afterskip    = {0.0ex \@plus .2ex},
+    beforeskip   = {0.9ex \@plus .2ex},
+    afterskip    = {0.9ex \@plus .2ex},
     % afterskip   = {0ex},
   },
   subsubsection={%
@@ -733,8 +726,9 @@
     %% 双面打印页眉页脚
       \fancypagestyle{front}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{\zihao{4}\bfseries\kaishu{\sjtu@value@school}
-        {\zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}}
+        \fancyhead[LO,RE]{\zihao{4}\bfseries
+        \kaishu{\sjtu@value@school}{\zihao{-4}\songti
+        \sjtu@value@chinesedegree\sjtu@label@thesis}}
         \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
         % \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
         % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
@@ -742,12 +736,12 @@
       }
       \fancypagestyle{main}{%
         \fancyhf{}
-        \fancyhead[LO,RE]{{\bfseries\zihao{4}\kaishu\sjtu@value@school}
-        \zihao{-4}\songti\sjtu@value@chinesedegree\sjtu@label@thesis}
+        \fancyhead[LO,RE]{{\bfseries\zihao{4}\kaishu
+        \sjtu@value@school}{\zihao{-4}\songti\sjtu@value@chinesedegree
+        \sjtu@label@thesis}}
         \fancyhead[LE,RO]{\nouppercase{第 \thepage 页}}
         % \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
         % \renewcommand{\headheight}{32pt}
-        \renewcommand{\headsep}{2mm} % 页眉底端到正文文字上端距离
       }
     \else
     %% 单面打印页眉页脚
@@ -764,7 +758,7 @@
         \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
         \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
         % \renewcommand{\headheight}{32pt}
-        \renewcommand{\headsep}{2mm} % 页眉底端到正文文字上端距离
+        \renewcommand{\headsep}{2mm} 
       }
     \fi
   \fi
@@ -824,6 +818,10 @@
 % 主要符号对照表
 \newenvironment{nomenclaturename}{\cleardoublepage
 \chapter{\sjtu@nomenclature}{}}{}
+
+% 简写缩写对照表
+\newenvironment{abbrtablename}{\cleardoublepage
+\chapter{\sjtu@abbrtable}{}}{}
 
 \newenvironment{publications}[1]
      {\chapter{\sjtu@label@publications}%
